@@ -11,7 +11,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BookReviewDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"));
+        builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer("CONNECTION STRING"));
 
         // Add services to the container.
         builder.Services.AddAuthorization();
@@ -23,13 +23,13 @@ public class Program
 
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
-        /*if (app.Environment.IsDevelopment())
+        /*// Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }*/
-
+        
         app.UseSwagger();
         app.UseSwaggerUI();
 
